@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><title>QuickBooks callback</title>
+<style>body{font-family:sans-serif;max-width:760px;margin:40px auto;padding:0 16px}textarea{width:100%;height:120px}</style></head><body>
+<h2>QuickBooks authorization received</h2>
+<p id="msg"></p><p>Copy the full URL below and paste it into the local exchange script:<br><code>node exchange.mjs '&lt;URL&gt;'</code></p>
+<textarea id="u" readonly></textarea><button onclick="navigator.clipboard.writeText(u.value)">Copy</button>
+<p>The code expires in about 10 minutes and works only once. This page sends nothing anywhere.</p>
+<script>const u=document.getElementById('u');u.value=location.href;const p=new URLSearchParams(location.search);
+document.getElementById('msg').textContent=p.get('error')?('Error: '+p.get('error')):('realmId: '+(p.get('realmId')||'(missing)'));</script>
+</body></html>
